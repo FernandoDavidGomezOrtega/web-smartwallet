@@ -1,0 +1,3 @@
+configurar:
+    config/db.php,
+    config/parameters.php
