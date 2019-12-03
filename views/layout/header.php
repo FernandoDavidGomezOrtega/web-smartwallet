@@ -37,7 +37,7 @@ ob_start();
       <a class="navbar-brand title font-italic " href="<?= base_url ?>" title="Inicio">
 
 
-        <img class="" src="<?= base_url ?>assets/img/logo.jpg" alt="logo smart wallet">
+        <img class="logo" id="logo" src="<?= base_url ?>assets/img/logo.jpg" alt="logo smart wallet">
         Smart Wallet
       </a>
 
@@ -107,7 +107,7 @@ ob_start();
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 
-             
+
 
 
               </div>
