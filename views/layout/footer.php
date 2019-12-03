@@ -4,7 +4,7 @@
         <!-- /Main -->
 
         <!-- Footer -->
-        <footer id="" class="">
+        <footer id="footer" class="footer">
 
                     <div class="autor designed-by" id="">
   <p>
