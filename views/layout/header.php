@@ -26,11 +26,7 @@ ob_start();
 
 
 
-  <?php if (isset($_SESSION['title'])) : ?>
-  <title>$_SESSION['title']</title>
-  <?php Utils::deleteSession('title'); else: ?>
   <title>Smart Wallet</title>
-  <?php endif;?>
 </head>
 
 <body data-spy="scroll" data-target="#navbar" data-offset="74">
@@ -51,16 +47,12 @@ ob_start();
 
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav ml-auto">
-          <?php if (isset($_SESSION['identity'])) : ?>
           <li class="nav-item ">
               <div class="dropdown show">
                 <a class=" nav-link  color_nav_link_item green-letters mr-lg-3" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-                  <b class="categorias">Bienvenido/a <?= $_SESSION['identity']->nombre ;?></b>
                 </a>
               </div>
             </li>
-          <?php endif;?>
-          <?php if (!isset($_SESSION['identity'])) : ?>
             <li class="nav-item d-lg-none">
               <div class="dropdown show">
                 <a class=" nav-link  color_nav_link_item" href="<?= base_url ?>usuario/entrar" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
@@ -68,7 +60,6 @@ ob_start();
                 </a>
               </div>
             </li>
-          <?php elseif (isset($_SESSION['identity']) && isset($_SESSION['admin'])) : ?>
             <li class="nav-item  d-lg-none">
               <div class="dropdown show">
                 <a class=" nav-link dropdown-toggle color_nav_link_item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -85,7 +76,6 @@ ob_start();
                 </div>
               </div>
             </li>
-          <?php else : ?>
             <li class="nav-item  d-lg-none">
               <div class="dropdown show">
                 <a class=" nav-link dropdown-toggle color_nav_link_item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -101,7 +91,6 @@ ob_start();
             </li>
 
 
-          <?php endif; ?>
 
           <li class="nav-item d-lg-none ">
             <div class="dropdown show">
@@ -117,18 +106,14 @@ ob_start();
                 <b class="categorias">Categorías</b>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <?php $categorias = Utils::showCategorias(); ?>
 
-                <?php while ($cat = $categorias->fetch_object()) : ?>
-                  <a class="dropdown-item" href="<?= base_url ?>categoria/ver&id=<?= $cat->id ?>"><?= $cat->nombre ?></a>
-                <?php endwhile; ?>
+             
 
 
               </div>
             </div>
           </li>
 
-          <?php if (isset($_SESSION['identity'])) : ?>
           <li class="nav-item d-lg-none ">
             <div class="dropdown show">
               <a class=" nav-link  color_nav_link_item" href="<?= base_url ?>usuario/logout" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
@@ -136,7 +121,6 @@ ob_start();
               </a>
             </div>
           </li>
-          <?php endif;?>
 
 
 
