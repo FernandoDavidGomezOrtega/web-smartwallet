@@ -37,7 +37,7 @@ ob_start();
       <a class="navbar-brand title font-italic " href="<?= base_url ?>" title="Inicio">
 
 
-        <img class="" src="<?= base_url ?>assets/img/logo.jpg" alt="logo smart wallet">
+        <img class="logo" id="logo" src="<?= base_url ?>assets/img/logo.jpg" alt="logo smart wallet">
         Smart Wallet
       </a>
 
@@ -115,9 +115,13 @@ ob_start();
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <?php $categorias = Utils::showCategorias(); ?>
 
+
                 <?php while ($cat = $categorias->fetch_object()) : ?>
                   <a class="dropdown-item" href="<?= base_url ?>categoria/ver&id=<?= $cat->id ?>"><?= $cat->nombre ?></a>
                 <?php endwhile; ?>
+
+
+
 
 
               </div>
