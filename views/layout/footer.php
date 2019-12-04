@@ -6,14 +6,14 @@
         <!-- Footer -->
         <footer id="footer" class="footer">
 
-                    <div class="autor designed-by" id="">
+                    <div class="autor designed-by" id="footer">
   <p>
     Creado por <a href="" target="_blank">Grupo DJF - UOC
       &copy;</a> <br>
   </p>
 </div>
 
-<div class="redes-sociales designed-by" id="">
+<div class="redes-sociales designed-by" id="footer">
   <a href="" target="_blank">Github</a>
 </div>
         </footer>
