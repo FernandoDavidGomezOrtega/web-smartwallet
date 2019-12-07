@@ -22,6 +22,13 @@
         <!-- Back to top button -->
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
+    <!-- JS Particles.js -->
+    <script src="js/particles.min.js"></script>
+    <script src="js/app.js"></script>
+    
+    <!-- JS FontAwesome -->
+    <script src="https://kit.fontawesome.com/a2e8d0339c.js"></script>
+
 <!-- Required JavaScript Libraries -->
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
@@ -34,6 +41,9 @@
 
 <!-- Template Specisifc Custom Javascript File -->
 <script src="js/main.js"></script>
+
+  <!-- Template Specisifc Custom Javascript File -->
+  <script src="js/custom.js"></script>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
