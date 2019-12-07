@@ -11,12 +11,17 @@ ob_start();
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- css styles -->
   <link rel="stylesheet" href="<?= base_url; ?>assets/css/styles.css">
+  <!-- favicon  -->
   <link rel="shortout icon" type="image/ico" href="<?= base_url; ?>favicon.ico">
 
   <!-- Libraries CSS Files -->
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="lib/animate-css/animate.min.css" rel="stylesheet">
+
+  <!-- Google fonst Permanent Marker -->
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet"> 
 
 <!-- jQuery -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
@@ -30,6 +35,27 @@ ob_start();
 </head>
 
 <body data-spy="scroll" data-target="#navbar" data-offset="74">
+  <div id="particles.js"> 
+
+  <?php if(!isset($_SESSION['identity'])): ?>
+  <section id="welcome">
+    <div class="welcome-container">
+      <div class="wow fadeIn">
+        <!-- <div class="welcome-logo">
+          <img class="" src="assets/img/logo.jpg" alt="Logo INPRL">
+        </div> -->
+
+        <h1>Smart Wallet</h1>
+        <h2>Disfruta de la <span class="rotating"> última tecnología, comodidad, confianza</span></h2>
+        <div class="actions">
+          <a href="#content" class="btn-informacion-riesgos">Inicio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<?php endif; ?>
+
+  </div>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Header -->
   <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
