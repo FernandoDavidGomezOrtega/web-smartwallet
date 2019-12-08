@@ -21,13 +21,13 @@ ob_start();
   <link href="lib/animate-css/animate.min.css" rel="stylesheet">
 
   <!-- Google fonst Permanent Marker -->
-  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 
-<!-- jQuery -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+  <!-- jQuery -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
 
-<!-- Mis scripts -->
-<!-- <script type="text/javaScript" src="js/main.js"></script> -->
+  <!-- Mis scripts -->
+  <!-- <script type="text/javaScript" src="js/main.js"></script> -->
 
 
 
@@ -35,27 +35,10 @@ ob_start();
 </head>
 
 <body data-spy="scroll" data-target="#navbar" data-offset="74">
-  <div id="particles.js"> 
 
-  <?php if(!isset($_SESSION['identity'])): ?>
-  <section id="welcome">
-    <div class="welcome-container">
-      <div class="wow fadeIn">
-        <!-- <div class="welcome-logo">
-          <img class="" src="assets/img/logo.jpg" alt="Logo INPRL">
-        </div> -->
 
-        <h1>Smart Wallet</h1>
-        <h2>Disfruta de la <span class="rotating"> última tecnología, comodidad, confianza</span></h2>
-        <div class="actions">
-          <a href="#content" class="btn-informacion-riesgos">Inicio</a>
-        </div>
-      </div>
-    </div>
-  </section>
-<?php endif; ?>
 
-  </div>
+
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Header -->
   <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -74,14 +57,14 @@ ob_start();
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav ml-auto">
           <?php if (isset($_SESSION['identity'])) : ?>
-          <li class="nav-item ">
+            <li class="nav-item ">
               <div class="dropdown show">
                 <a class=" nav-link  color_nav_link_item green-letters mr-lg-3" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-                  <b class="categorias">Bienvenido/a <?= $_SESSION['identity']->nombre ;?></b>
+                  <b class="categorias">Bienvenido/a <?= $_SESSION['identity']->nombre; ?></b>
                 </a>
               </div>
             </li>
-          <?php endif;?>
+          <?php endif; ?>
           <?php if (!isset($_SESSION['identity'])) : ?>
             <li class="nav-item d-lg-none">
               <div class="dropdown show">
@@ -155,14 +138,14 @@ ob_start();
           </li>
 
           <?php if (isset($_SESSION['identity'])) : ?>
-          <li class="nav-item d-lg-none ">
-            <div class="dropdown show">
-              <a class=" nav-link  color_nav_link_item" href="<?= base_url ?>usuario/logout" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-                <b class="categorias">Cerrar Sesión</b>
-              </a>
-            </div>
-          </li>
-          <?php endif;?>
+            <li class="nav-item d-lg-none ">
+              <div class="dropdown show">
+                <a class=" nav-link  color_nav_link_item" href="<?= base_url ?>usuario/logout" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                  <b class="categorias">Cerrar Sesión</b>
+                </a>
+              </div>
+            </li>
+          <?php endif; ?>
 
 
 

@@ -4,6 +4,11 @@ require_once 'autoload.php';
 require_once 'config/db.php';
 require_once 'config/parameters.php';
 require_once 'helpers/utils.php';
+if (!isset($_COOKIE['en']) && (!isset($_SESSION['identity']))) {
+  setcookie("en", 0, time()+1200); 
+
+  header('Location: particles.php');
+}
 require_once 'views/layout/header.php';
 require_once 'views/layout/sidebar.php';
 

@@ -97,4 +97,4 @@ ob_start();
 </aside>
 
 <!-- CONTENIDO CENTRAL -->
-<div id="" class="col-lg-8 mt-3 ml-3 mr-3">
+<div class="col-lg-8 mt-3 ml-3 mr-3">
