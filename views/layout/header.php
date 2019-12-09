@@ -14,7 +14,7 @@ ob_start();
   <!-- css styles -->
   <link rel="stylesheet" href="<?= base_url; ?>assets/css/styles.css">
   <!-- favicon  -->
-  <link rel="shortout icon" type="image/ico" href="<?= base_url; ?>favicon.ico">
+  <link rel="shortout icon" type="image/png" href="<?= base_url; ?>favicon.png">
 
   <!-- Libraries CSS Files -->
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -46,7 +46,7 @@ ob_start();
       <a class="navbar-brand title font-italic " href="<?= base_url ?>" title="Inicio">
 
 
-        <img class="logo" id="logo" src="<?= base_url ?>assets/img/logo.jpg" alt="logo smart wallet">
+        <img class="logo" id="logo" src="<?= base_url ?>assets/img/blockchain.jpg" alt="logo smart wallet">
         Smart Wallet
       </a>
 
