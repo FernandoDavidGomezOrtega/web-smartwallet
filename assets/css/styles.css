@@ -87,7 +87,8 @@ td{
 
 
 #logo{
-  padding: 20px;
+  /* padding: 20px; */
+  border-radius: 50%;
   margin-left: 20px;
   float:left;
 }
@@ -158,6 +159,7 @@ td{
   text-transform: uppercase;
   color:#fafafa;
   z-index: 1;
+  border-bottom: 0px;
 }
 
 html body div#particles.js section#welcome div.welcome-container div.wow.fadeIn h1{
@@ -175,6 +177,7 @@ html body div#particles.js section#welcome div.welcome-container div.wow.fadeIn 
 #welcome h2, #welcome-informacion h2 {
   color: #999;
   margin-bottom: 50px;
+  background-color: inherit !important;
 }
 
 @media (max-width: 768px) {
@@ -203,6 +206,11 @@ html body div#particles.js section#welcome div.welcome-container div.wow.fadeIn 
   border-radius: 2px;
   transition: 0.5s;
   margin: 10px;
+}
+
+#welcome .actions a:visited, #welcome-informacion .actions a:visited {
+ /* background-color: #007bff; */
+ color: white;
 }
 
 .btn-informacion-riesgos {
@@ -537,65 +545,37 @@ button{
   text-align: center;
 }
 
-
-/*FOOTER*/
-/* footer{
-  clear: both;
-  display: flex;
-  text-align: center;
-  margin-top: 30px;
-  padding-top:10px;
-  padding-bottom: 10px;
-  background: linear-gradient(90deg, #1f2025 0, #383942 25%, #41434d);
-} */
+/* FOOTER */
 
 footer {
-	margin-top: 30px;
+	margin-top: 40px;
 	background: linear-gradient(90deg, #1f2025 0, #383942 25%, #41434d);
 	/* padding-top: 10px; */
-  padding: 30px 200px 40px 200px;
+  padding: 0px 200px 0px 200px;
 	/* margin-bottom: 10px; */
 	width: 100%;
-	color: #83e90f;
-	display: flex;
-	flex-direction:row;
+	color: #007bff;
+	/* display: flex; */
+	/* flex-direction:row;
 	flex-wrap:no-wrap;
-	justify-content:space-between;
+	justify-content:space-between; */
 }
 
-footer a{
-  color: #83e90f;
+.redes-sociales {
+	padding: 10px;
+	background-color: var(--purple-light);
 }
 
-footer a:hover{
-  text-decoration: underline;
+.redes-sociales img {
+	padding: 5px;
+	border-radius: 20%;
+	width: 50px;
+	transition: .3s ease all;
 }
 
-footer .redes-sociales a {
-	margin-left: 20px;
-  color: #83e90f;
+.redes-sociales img:hover {
+	transform: scale(1.2);
 }
-
-/* footer {
-  flex-direction:row;
-  text-align: center;
-} */
-
-footer .autor {
-  order:1;
-  color: #83e90f;
-}
-
-footer .autor a{
-  color: #83e90f;
-}
-
-footer .redes-sociales {
-  order:2;
-  /* margin-bottom: 20px; */
-}
-
-
 
 /*CARRITO*/
 .delete-carrito{
@@ -646,21 +626,6 @@ footer .redes-sociales {
 }
 
 
-/* ///////////////////////////////////
-estilos taxi */
-.btn-blue{
-  background-color: #3471fb;
-  color: white;
-}
-
-.btn-blue:hover{
-  background-color: #6a9a32;
-}
-
-/* #header a p{
-
-  margin-top: 50px;
-} */
 
 #header .title:hover{
   color: #01B1EA;
@@ -700,9 +665,9 @@ estilos taxi */
   height: 100%;
 }
 
-h2{
+/* h2{
   background-color: #6a9a32;
-}
+} */
 
 p{
   text-align: justify;
@@ -787,8 +752,8 @@ blockquote{
 /* max-width:1024px */
 @media screen and (min-width: 1024px){
   #header img{
-    width: 120px;
-    margin-right: 10px;
+    width: 60px;
+    margin-right: 40px;
   }
 
   #header .title{
@@ -819,7 +784,7 @@ blockquote{
   }
 
 #header img{
-  width: 120px;
+  width: 100px;
   margin-right: 10px;
 }
 
@@ -870,27 +835,10 @@ blockquote{
   padding-inline-start: 181px;
 }
 
-footer {
+/* footer {
   flex-direction:column;
     padding: 30px 10% 40px 10%;
-}
-
-footer p{
-  text-align: center;
-}
-
-footer .autor {
-  order:2;
-}
-
-footer .redes-sociales {
-  order:1;
-  margin-bottom: 20px;
-}
-
-footer .redes-sociales a{
-  margin: 0px 20px;
-}
+} */
 
 
 }

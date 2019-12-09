@@ -4,8 +4,8 @@ require_once 'autoload.php';
 require_once 'config/db.php';
 require_once 'config/parameters.php';
 require_once 'helpers/utils.php';
-if (!isset($_COOKIE['entrar']) && (!isset($_SESSION['identity']))) {
-  setcookie("entrar", 0, time()+1200); 
+if (!isset($_COOKIE['entr']) && (!isset($_SESSION['identity']))) {
+  setcookie("entr", 0, time()+1200); 
 
   header('Location: welcome.php');
 }

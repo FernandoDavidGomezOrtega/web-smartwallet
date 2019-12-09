@@ -4,18 +4,25 @@
 <!-- /Main -->
 
 <!-- Footer -->
-<footer id="footer" class="footer">
 
-  <div class="autor designed-by" id="footer">
+    
+<footer id="" class="">
+<div class="row justify-content-center redes-sociales">
+<div class="col-auto">
+    <a href="https://sites.google.com/fp.uoc.edu/grupo-djf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="assets/img/google-plus-3-64.png" alt=""></a>
+    <a href="https://www.youtube.com/watch?v=-Fyn83okjg8&feature=youtu.be" target="_blank"><img src="assets/img/youtube-3-6490.png" alt=""></a>
+    <a href="https://github.com/FernandoDavidGomezOrtega/web-smartwallet" target="_blank"><img src="assets/img/github-8-6495.png" alt=""></a>
+</div>
+</div>
+
+<div class="row ">
+<div class="col-12" id="">
     <p>
-      Creado por <a href="" target="_blank">Grupo DJF - UOC
-        &copy;</a> <br>
+      Creado por Grupo DJF - UOC &copy;
     </p>
   </div>
+</div>
 
-  <div class="redes-sociales designed-by" id="footer">
-    <a href="" target="_blank">Github</a>
-  </div>
 </footer>
 <!-- /Footer -->
 
@@ -34,8 +41,8 @@
 <script src="lib/superfish/superfish.min.js"></script> -->
 <script src="lib/morphext/morphext.min.js"></script>
 <!-- <script src="lib/wow/wow.min.js"></script>
-<script src="lib/stickyjs/sticky.js"></script>
-<script src="lib/easing/easing.js"></script> -->
+<script src="lib/stickyjs/sticky.js"></script> -->
+<script src="lib/easing/easing.js"></script>
 
 <!-- Template Specisifc Custom Javascript File -->
 <script src="js/main.js"></script>
