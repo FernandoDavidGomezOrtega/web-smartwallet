@@ -45,4 +45,3 @@ show_error();
 }
 
 require_once 'views/layout/footer.php';
-
