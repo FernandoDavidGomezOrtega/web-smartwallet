@@ -5,13 +5,13 @@
 
 <!-- Footer -->
 
-    
+
 <footer id="" class="">
 <div class="row justify-content-center redes-sociales">
 <div class="col-auto">
-    <a href="https://sites.google.com/fp.uoc.edu/grupo-djf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="assets/img/google-plus-3-64.png" alt=""></a>
-    <a href="" target="_blank"><img src="assets/img/youtube-3-6490.png" alt=""></a>
-    <a href="https://github.com/FernandoDavidGomezOrtega/web-smartwallet" target="_blank"><img src="assets/img/github-8-6495.png" alt=""></a>
+    <a href="https://sites.google.com/fp.uoc.edu/grupo-djf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="<?= base_url; ?>assets/img/google-plus-3-64.png" alt=""></a>
+    <a href="" target="_blank"><img src="<?= base_url; ?>assets/img/youtube-3-6490.png" alt=""></a>
+    <a href="https://github.com/FernandoDavidGomezOrtega/web-smartwallet" target="_blank"><img src="<?= base_url; ?>assets/img/github-8-6495.png" alt=""></a>
 </div>
 </div>
 
