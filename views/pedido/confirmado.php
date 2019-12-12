@@ -1,5 +1,5 @@
 <?php if (isset($_SESSION['pedido']) && $_SESSION['pedido'] == 'complete') : ?>
-  <h1>Tu pedido se ha confirmado</h1>
+  <h1>Tu pedido se ha registrado</h1>
   <p>
     Tu pedido ha sido guardado con éxito, una vez que realices la transferencia bancaria a la cuenta:
     2342342342 con el coste del pedido será procesado y enviado.
