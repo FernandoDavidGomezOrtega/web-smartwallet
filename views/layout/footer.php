@@ -44,7 +44,7 @@
 <script src="lib/stickyjs/sticky.js"></script> -->
 <script src="lib/easing/easing.js"></script>
 
-<!-- Template Specisifc Custom Javascript File -->
+<!-- principales funciones javascript de la aplicación -->
 <script src="js/main.js"></script>
 <!-- <script src="js/custom.js"></script> -->
 
