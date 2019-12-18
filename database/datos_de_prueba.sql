@@ -147,8 +147,6 @@ INSERT INTO productos VALUES(NULL, 3, 'Lidger Nano X', '<p>Su clave privada que 
 
 <p>Mantenga de forma segura sus activos de cifrado.  El Ledger Nano S est&aacute; construido alrededor del tipo de chip m&aacute;s seguro del mercado, lo que garantiza una seguridad &oacute;ptima para su criptograf&iacute;a.</p>
 
-<p>Su clave privada que da acceso a sus fondos nunca est&aacute; expuesta.  Permanece protegido con un chip seguro, dise&ntilde;ado para resistir ataques altamente sofisticados.</p>
-
 <p>Administre 23 monedas y  <a href="https://www.ledger.com/erc20-wallet/">ERC-20</a>  directamente desde su escritorio con Ledger Live.</p>
 
 <p>Para administrar otros activos, puede usar billeteras externas.  </p>
@@ -172,8 +170,6 @@ INSERT INTO productos VALUES(NULL, 3, 'Lidger Backup Pack', '<p>Administre 23 mo
 <p>Mantenga de forma segura sus activos de cifrado.  El Ledger Nano S est&aacute; construido alrededor del tipo de chip m&aacute;s seguro del mercado, lo que garantiza una seguridad &oacute;ptima para su criptograf&iacute;a.</p>
 
 <p>Su clave privada que da acceso a sus fondos nunca est&aacute; expuesta.  Permanece protegido con un chip seguro, dise&ntilde;ado para resistir ataques altamente sofisticados.</p>
-
-<p>Administre 23 monedas y  <a href="https://www.ledger.com/erc20-wallet/">ERC-20</a>  directamente desde su escritorio con Ledger Live.</p>
 
 <p>Para administrar otros activos, puede usar billeteras externas.  </p>
 
