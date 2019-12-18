@@ -24,7 +24,7 @@
 
           <div>
           <h5 class="card-title text-center"><?= $product->nombre ?></h5>
-            <span class="badge badge-success mb-3"><?= $product->precio ?> €</span>
+            <span class="badge badge-success"><?= $product->precio ?> €</span>
           </div>
 
       

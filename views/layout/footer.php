@@ -36,17 +36,11 @@
 
 <!-- Required JavaScript Libraries -->
 <script src="lib/jquery/jquery.min.js"></script>
-<!-- <script src="lib/bootstrap/js/bootstrap.min.js"></script> -->
-<!-- <script src="lib/superfish/hoverIntent.js"></script>
-<script src="lib/superfish/superfish.min.js"></script> -->
 <script src="lib/morphext/morphext.min.js"></script>
-<!-- <script src="lib/wow/wow.min.js"></script>
-<script src="lib/stickyjs/sticky.js"></script> -->
 <script src="lib/easing/easing.js"></script>
 
 <!-- principales funciones javascript de la aplicación -->
 <script src="js/main.js"></script>
-<!-- <script src="js/custom.js"></script> -->
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

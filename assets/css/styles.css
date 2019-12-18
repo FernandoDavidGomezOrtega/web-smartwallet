@@ -1029,7 +1029,7 @@ blockquote{
 .pub_image .description{
     font-size: 14px;
 	line-height: 22px;
-	height: 92px;
+	height: 104px;
 	overflow: hidden;
     margin: 0 0 10px 0;
 }
@@ -1095,10 +1095,10 @@ blockquote{
     padding: 30px 0px 0px 30px;
 }
 
-.actions{
+/* .actions{
     float: right;
     margin-right: 20px;
-}
+} */
 
 .actions a{
     margin-right: 20px;
