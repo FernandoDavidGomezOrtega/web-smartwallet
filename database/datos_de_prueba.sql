@@ -143,7 +143,7 @@ INSERT INTO productos VALUES(NULL, 3, 'Lidger Nano X', '<p>Mantenga de forma seg
 <p>Chips: ST31H320 (seguro) + STM32F042.</p>
 
 ', 119, 100, 'no', CURDATE(), 'lidgernano1.jpg'  );
-INSERT INTO productos VALUES(NULL, 3, 'Lidger Nano X', '<p>Su clave privada que da acceso a sus fondos nunca est&aacute; expuesta.  Permanece protegido con un chip seguro, dise&ntilde;ado para resistir ataques altamente sofisticados.</p>
+INSERT INTO productos VALUES(NULL, 3, 'Lidger Nano S', '<p>Su clave privada que da acceso a sus fondos nunca est&aacute; expuesta.  Permanece protegido con un chip seguro, dise&ntilde;ado para resistir ataques altamente sofisticados.</p>
 
 <p>Mantenga de forma segura sus activos de cifrado.  El Ledger Nano S est&aacute; construido alrededor del tipo de chip m&aacute;s seguro del mercado, lo que garantiza una seguridad &oacute;ptima para su criptograf&iacute;a.</p>
 

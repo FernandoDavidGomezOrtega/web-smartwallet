@@ -9,10 +9,12 @@
           <div class="form-group">
             <label for="estado">Cambiar estado del pedido</label>
             <select class='' name='estado' id=''>
-              <option value='confirmed' <?= $pedido->estado == 'confirm' ? 'selected' : ''; ?>>Pendiente</option>
-              <option value='preparation' <?= $pedido->estado == 'preparation' ? 'selected' : ''; ?>>En preparación</option>
-              <option value='ready' <?= $pedido->estado == 'ready' ? 'selected' : ''; ?>>Preparado para enviar</option>
-              <option value='sended' <?= $pedido->estado == 'sended' ? 'selected' : ''; ?>>Enviado</option>
+              <option value='confirmed' <?= $pedido->estado == 'Pendiente de pago' ? 'selected' : ''; ?>>Pendiente de pago</option>
+              <option value='confirmed' <?= $pedido->estado == 'Confirmado' ? 'selected' : ''; ?>>Confirmado</option>
+              <option value='preparation' <?= $pedido->estado == 'En preparación' ? 'selected' : ''; ?>>En preparación</option>
+              <option value='ready' <?= $pedido->estado == 'Preparado para enviar' ? 'selected' : ''; ?>>Preparado para enviar</option>
+              <option value='sended' <?= $pedido->estado == 'Enviado' ? 'selected' : ''; ?>>Enviado</option>
+              <option value='sended' <?= $pedido->estado == 'Entregado' ? 'selected' : ''; ?>>Entregado</option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary">Cambiar estado</button>
@@ -39,7 +41,8 @@
   <br>
 
   <p>
-    Estado: <?= Utils::showStatus($pedido->estado) ?>
+    Estado: <?= $pedido->estado ?>
+    <!-- Estado: <?= Utils::showStatus($pedido->estado) ?> -->
   </p>
   <p>
     Número de pedido: <?= $pedido->id; ?>

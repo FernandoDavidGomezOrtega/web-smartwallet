@@ -158,7 +158,7 @@ class Pedido
   public function save()
   {
     $sql = "INSERT INTO pedidos VALUES(NULL, {$this->getUsuarioId()}, '{$this->getProvincia()}', "
-              ."'{$this->getLocalidad()}', '{$this->getDireccion()}', {$this->getCoste()}, 'confirmed', "
+              ."'{$this->getLocalidad()}', '{$this->getDireccion()}', {$this->getCoste()}, 'Pendiente de pago', "
               ."CURDATE(), CURTIME()  )";
 
     $save = $this->db->query($sql);

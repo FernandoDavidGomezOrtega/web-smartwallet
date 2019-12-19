@@ -14,7 +14,7 @@ body{
   position: fixed;
   display: none;
   background: rgba(0, 0, 0, 0.2);
-  color: #fff;
+  color: #03C4EB;
   padding: 6px 12px 9px 12px;
   font-size: 16px;
   border-radius: 2px;
@@ -549,6 +549,12 @@ button{
   border: 0px  !important;
 }
 
+#no-active a:hover, #no-active b:hover{
+  color: #83e90f !important;
+  text-shadow: none !important;
+  cursor: default;
+}
+
 /* FOOTER */
 
 footer {
@@ -744,9 +750,11 @@ blockquote{
   justify-content: center;
 }
 
-#footer a{
-  color:white;
+footer a, footer a:visited, footer a:hover{
+  color:#007bff;;
 }
+
+
 
 
 
