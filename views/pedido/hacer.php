@@ -26,8 +26,9 @@
           <label for="zipcode">Código postal</label>
           <input type="text" class="form-control" id="" name="zipcode"  required>
         </div>
-
-        <button type="submit" class="btn btn-primary white-letters" >Confirmar pedido</button>
+        <div class="row justify-content-center">
+          <button type="submit" class="btn btn-primary white-letters" >Confirmar pedido</button>
+        </div>
       </form>
     </div>
   </div>

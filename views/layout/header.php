@@ -78,9 +78,6 @@ ob_start();
 
 <body data-spy="scroll" data-target="#navbar" data-offset="74">
 
-
-
-
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Header -->
   <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -100,8 +97,8 @@ ob_start();
         <ul class="navbar-nav ml-auto">
           <?php if (isset($_SESSION['identity'])) : ?>
             <li class="nav-item ">
-              <div class="dropdown show">
-                <a class=" nav-link  color_nav_link_item green-letters mr-lg-3" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+              <div class="dropdown show no-active" id="no-active">
+                <a class=" nav-link  color_nav_link_item green-letters mr-lg-3" name="disabled" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
                   <b class="categorias">Bienvenido/a <?= $_SESSION['identity']->nombre; ?></b>
                 </a>
               </div>
