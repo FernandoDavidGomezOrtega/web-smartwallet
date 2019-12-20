@@ -5,10 +5,15 @@
 </a>
 
 <?php if (isset($_SESSION['complete'])) : ?>
-  <strong class="alert_green"><?= $_SESSION['complete'] ?></strong>
+  <div class="alert alert-success" role="alert">
+    <?= $_SESSION['complete'] ?>
+  </div>
+  
 
 <?php elseif (isset($_SESSION['failed'])) : ?>
-  <strong class="alert_red"><?= $_SESSION['failed'] ?></strong>
+  <div class="alert alert-success" role="alert">
+    <?= $_SESSION['failed'] ?>
+  </div>
 <?php endif; ?>
 
 <?php

@@ -104,14 +104,14 @@ td{
 }
 
 #particles-js {
-	height: 100vh; 
+	height: 100vh;
 	width: 100%;
     position: fixed;
     z-index: -1;
 }
 
 /*--------------------------------------------------------------
-# Welcome 
+# Welcome
 --------------------------------------------------------------*/
 #welcome {
   display: table;
@@ -580,7 +580,10 @@ footer {
 	padding: 5px;
 	border-radius: 20%;
 	width: 50px;
-	transition: .3s ease all;
+  transition: .3s ease all;
+  /* -webkit-box-shadow: 10px 10px 5px 0px rgba(0,123,255,1);
+  -moz-box-shadow: 5px 5px 5px 0px rgba(0,123,255,1);
+  box-shadow: 5px 5px 5px 0px rgb(0, 123, 255); */
 }
 
 .redes-sociales img:hover {
@@ -949,7 +952,7 @@ footer a, footer a:visited, footer a:hover{
 }
 
 .pub_image{
-    margin-bottom: 1.5em;
+    /* margin-bottom: 1.5em; */
     float: left;
     /* width: 45%; */
     padding: 25px;
@@ -1115,4 +1118,3 @@ footer a, footer a:visited, footer a:hover{
 .actions a{
     margin-right: 20px;
 }
-

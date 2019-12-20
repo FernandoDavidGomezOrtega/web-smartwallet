@@ -51,15 +51,17 @@ class Utils{
   }
 
   public static function showStatus($status) {
-    $value = 'Pendiente';
-    if($status == 'confirmed') {
-      $value = 'Pendiente';
-    } elseif($status == 'preparation') {
+    $value = 'Pendiente de pago';
+    if($status == 'Confirmado') {
+      $value = 'Confirmado';
+    } elseif($status == 'En preparacion') {
        $value = 'En preparación';
-    } elseif($status == 'ready'){
+    } elseif($status == 'Preparado para enviar'){
         $value = 'Preparado para enviar';
-    } elseif($status == 'sended'){
+    } elseif($status == 'Enviado'){
         $value = 'Enviado';
+    } elseif($status == 'Entregado'){
+        $value = 'Entregado';
     }
     return $value;
   }
