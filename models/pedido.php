@@ -160,12 +160,22 @@ class Pedido
 
   public function save()
   {
+//    $sql = "INSERT INTO pedidos VALUES(NULL, {$this->getUsuarioId()}, '{$this->getProvincia()}', "
+//              ."'{$this->getLocalidad()}', '{$this->getDireccion()}', {$this->getCoste()}, 'Pendiente de pago', "
+//              ."CURDATE(), CURTIME()  )";
+//
+//    $save = $this->db->exec($sql,true);
 
-    $sql = "INSERT INTO pedidos VALUES(NULL, {$this->getUsuarioId()}, '{$this->getProvincia()}', "
-              ."'{$this->getLocalidad()}', '{$this->getDireccion()}', {$this->getCoste()}, 'Pendiente de pago', "
-              ."CURDATE(), CURTIME()  )";
-
-    $save = $this->db->exec($sql,true);
+      $sql = "INSERT INTO pedidos VALUES(NULL, %s,'%s','%s','%s',%s, '%s', CURDATE(), CURTIME())";
+      $sqlWithParameters = sprintf($sql,
+          $this->getUsuarioId(),
+          $this->getProvincia(),
+          $this->getLocalidad(),
+          $this->getDireccion(),
+          $this->getCoste(),
+          'Pendiente de pago'
+      );
+      $save = $this->db->exec($sqlWithParameters,true);
 
     $result = false;
   if ($save['STATUS'] == 'OK') {
@@ -178,7 +188,7 @@ class Pedido
     $sql = "SELECT LAST_INSERT_ID() as 'pedidos';";
 
     $query = $this->db->get_data($sql);
-     var_dump($query); return ;
+//     var_dump($query); return ;
     $pedido_id = $query->pedido;
 
     foreach ($_SESSION['carrito'] as $elemento) {

@@ -44,9 +44,12 @@ class pedidoController
           try {
 
               $pedido->save();
+
               $pedido->save_linea();
 
               $this->db->commit();
+              var_dump($pedido); return;die();
+
 
           } catch (\Exception $e) {
               die('error');
