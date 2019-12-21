@@ -28,13 +28,13 @@
   <?php endif; ?>
   <h3>Dirección de envío</h3>
   <p>
-    Provincia: <?= $pedido['provincia']; ?>
+    Provincia: <?= $pedido['DATA']['0']['provincia']; ?>
   </p>
   <p>
-    Ciudad: <?= $pedido['localidad']; ?>
+    Ciudad: <?= $pedido['DATA']['0']['localidad']; ?>
   </p>
   <p>
-    Dirección: <?= $pedido['direccion']; ?>
+    Dirección: <?= $pedido['DATA']['0']['direccion']; ?>
   </p>
   <br />
 
@@ -42,14 +42,14 @@
   <br>
 
   <p>
-    Estado: <?= $pedido->estado ?>
-    <!-- Estado: <?= Utils::showStatus($pedido['estado']) ?> -->
+    Estado: <?= $pedido['DATA']['0']['estado'] ?>
+    <!-- Estado: <?= Utils::showStatus($pedido['DATA']['0']['estado']) ?> -->
   </p>
   <p>
-    Número de pedido: <?= $pedido['id']; ?>
+    Número de pedido: <?= $pedido['DATA']['0']['id']; ?>
   </p>
   <p>
-    Total: <?= $pedido['coste']; ?> €
+    Total: <?= $pedido['DATA']['0']['coste']; ?> €
   </p>
   <p>
     Productos:
