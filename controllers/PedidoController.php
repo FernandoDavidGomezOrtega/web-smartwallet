@@ -48,11 +48,11 @@ class pedidoController
               $pedido->save_linea();
 
               $this->db->commit();
-              var_dump($pedido); return;die();
+//              var_dump($pedido); return;die();
 
 
           } catch (\Exception $e) {
-              die('error');
+//              die('error');
 
               $_SESSION['pedido'] = 'failed';
               $this->db->rollback();
@@ -78,6 +78,8 @@ class pedidoController
       $pedido = $pedido->getOneByUser();
       $pedido_productos = new Pedido();
       $productos = $pedido_productos->getProductosByPedido($pedido['DATA'][0]['id']);
+
+//      var_dump($productos);return;
 
 
     }

@@ -112,9 +112,9 @@ class Database
 //     public static function connect()
 //     {
 //         $host = 'localhost';
-//         $usuario = 'id10188783_root';
-//         $password = '12345';
-//         $db = 'id10188783_parteaccidente';
+//         $usuario = 'id11470001_root';
+//         $password = '8VHXSiqIClAF';
+//         $db = 'id11470001_smartwallet';
   
 //         if (!$conexion = new mysqli($host, $usuario, $password)) {
 //             die("<h3 style='color:red'>Conexion fallida: $conexion->connect_error</h3>");

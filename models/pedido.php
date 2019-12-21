@@ -185,16 +185,16 @@ class Pedido
   }
 
   public function save_linea() {
-    $sql = "SELECT LAST_INSERT_ID() as 'pedidos';";
+    $sql = "SELECT LAST_INSERT_ID() as 'id';";
 
-    $query = $this->db->get_data($sql);
+    $query = $this->db->get_data($sql,true);
 //     var_dump($query); return ;
-    $pedido_id = $query->pedido;
+      $pedido_id = $query['DATA'][0]['id'] ;
 
     foreach ($_SESSION['carrito'] as $elemento) {
       $producto = $elemento['producto'];
 
-      $insert = "INSERT INTO lineas_pedidos values(null, {$pedido_id}, {$producto->id}, {$elemento['unidades']} )";
+      $insert = "INSERT INTO lineas_pedidos values(null, {$pedido_id}, {$producto['id']}, {$elemento['unidades']} )";
       $save =$this->db->exec($insert,true);
 
     }
