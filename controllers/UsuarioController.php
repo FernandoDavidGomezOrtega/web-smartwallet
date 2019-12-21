@@ -90,19 +90,18 @@ class usuarioController
             $usuario->setEmail($_POST['email']);
             $usuario->setPassword($_POST['password']);
             $identity = $usuario->login();
-      
 
             //crear una sesion
-            if ($identity && is_object($identity)) {
-                $_SESSION['identity'] = $identity;
+            if (is_array($identity['DATA'])) {
+                $_SESSION['identity'] = $identity['DATA'][0];
 
                 /////////   DEBUGG    ////////////////////////
-                // echo '';
+                // echo '';F
                 // var_dump($_SESSION['identity']);
                 // echo '';
                 // die();
 
-                if ($identity->role == 'admin') {
+                if ($identity['role'] == 'admin') {
                     $_SESSION['admin'] = true;
                 }
             } else {

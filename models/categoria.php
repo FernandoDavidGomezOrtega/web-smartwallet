@@ -1,5 +1,6 @@
 <?php
 
+
 class Categoria{
   private $id;
   private $nombre;
@@ -7,7 +8,8 @@ class Categoria{
 
   //conexión db
   public function __construct(){
-    $this->db = Database::connect();
+    //Obtenemos la instancia de la BD
+    $this->db = Database::getInstance();
   }
 
 
@@ -25,23 +27,24 @@ class Categoria{
   }
 
   public function setNombre($nombre) {
-    $this->nombre = $this->db->real_escape_string($nombre);
+    $this->nombre = nombre;
   }
 
   public function getAll(){
-    $categorias = $this->db->query("SELECT * FROM categorias ORDER BY id DESC;");
+    //$categorias = $this->db->get_data("SELECT * FROM categorias ORDER BY id DESC;");
+      $categorias = $this->db->get_data("SELECT * FROM categorias ORDER BY id DESC;");
     return $categorias;
   }
 
-  public function getOne(){
-    $categoria = $this->db->query("SELECT * FROM categorias WHERE id={$this->id};");
-    return $categoria->fetch_object();
+  public function getOne($id){
+    $categoria = $this->db->get_data("SELECT * FROM categorias WHERE id=".$id);
+    return $categoria;
   }
 
   public function save(){
     $sql = "INSERT INTO categorias VALUES(NULL, '{$this->getNombre()}');";
 
-    $save = $this->db->query($sql);
+    $save = $this->db->exec($sql);
 
     $result = false;
     if ($save) {

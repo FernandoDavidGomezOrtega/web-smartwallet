@@ -56,7 +56,7 @@ ob_start();
             <li class="nav-item ">
               <div class="dropdown show no-active" id="no-active">
                 <a class=" nav-link  color_nav_link_item green-letters mr-lg-3" name="disabled" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-                  <b class="categorias">Bienvenido/a <?= $_SESSION['identity']->nombre; ?></b>
+                  <b class="categorias">Bienvenido/a <?= $_SESSION['identity']['nombre']; ?></b>
                 </a>
               </div>
             </li>
@@ -121,9 +121,9 @@ ob_start();
                 <?php $categorias = Utils::showCategorias(); ?>
 
 
-                <?php while ($cat = $categorias->fetch_object()) : ?>
-                  <a class="dropdown-item" href="<?= base_url ?>categoria/ver&id=<?= $cat->id ?>"><?= $cat->nombre ?></a>
-                <?php endwhile; ?>
+                  <?php foreach($categorias['DATA'] as $key => $cat): ?>
+                  <a class="dropdown-item" href="<?= base_url ?>categoria/ver&id=<?= $cat['id'] ?>"><?= $cat['nombre'] ?></a>
+                <?php endforeach; ?>
 
 
 

@@ -27,13 +27,13 @@
   <?php endif; ?>
   <h3>Dirección de envío</h3>
   <p>
-    Provincia: <?= $pedido->provincia; ?>
+    Provincia: <?= $pedido['provincia']; ?>
   </p>
   <p>
-    Ciudad: <?= $pedido->localidad; ?>
+    Ciudad: <?= $pedido['localidad']; ?>
   </p>
   <p>
-    Dirección: <?= $pedido->direccion; ?>
+    Dirección: <?= $pedido['direccion']; ?>
   </p>
   <br />
 
@@ -42,13 +42,13 @@
 
   <p>
     Estado: <?= $pedido->estado ?>
-    <!-- Estado: <?= Utils::showStatus($pedido->estado) ?> -->
+    <!-- Estado: <?= Utils::showStatus($pedido['estado']) ?> -->
   </p>
   <p>
-    Número de pedido: <?= $pedido->id; ?>
+    Número de pedido: <?= $pedido['id']; ?>
   </p>
   <p>
-    Total: <?= $pedido->coste; ?> €
+    Total: <?= $pedido['coste']; ?> €
   </p>
   <p>
     Productos:
@@ -64,26 +64,26 @@
           <th>Unidades</th>
         </tr>
       </thead>
-      <?php while ($producto = $productos->fetch_object()) : ?>
+      <?php foreach($productos['DATA'] as $key => $product): ?>
         <tr>
           <td class="">
-            <?php if ($producto->imagen != null) : ?>
-              <img class="img-max-height-90px" src="<?= base_url ?>uploads/images/<?= $producto->imagen ?>" alt="producto wallet">
+            <?php if ($product['imagen'] != null) : ?>
+              <img class="img-max-height-90px" src="<?= base_url ?>uploads/images/<?= $product['imagen'] ?>" alt="producto wallet">
             <?php else : ?>
               <img class="img-max-height-90px" src="<?= base_url ?>assets/img/no-image-available.jpg" alt="producto wallet">
             <?php endif; ?>
           </td>
           <td class="">
-            <a href='<?= base_url ?>producto/ver&id=<?= $producto->id ?>' class=''><?= $producto->nombre ?></a>
+            <a href='<?= base_url ?>producto/ver&id=<?= $product['id'] ?>' class=''><?= $product['nombre'] ?></a>
           </td>
           <td class="">
-            <?= $producto->precio ?>
+            <?= $product['precio'] ?>
           </td>
           <td class="">
-            <?= $producto->unidades; ?>
+            <?= $product['unidades']; ?>
           </td>
         </tr>
-      <?php endwhile; ?>
+      <?php endforeach; ?>
     </table>
   </div>
 <?php endif; ?>

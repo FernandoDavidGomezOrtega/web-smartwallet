@@ -46,13 +46,13 @@ if (isset($_SESSION['complete'])) {
         <th colspan="2">Editar / Eliminar</th>
       </tr>
     </thead>
-    <?php while ($pro = $productos->fetch_object()) : ?>
+    <?php while ($pro = $productos) : ?>
       <tbody>
         <tr>
-          <td><?= $pro->id; ?></td>
-          <td><?= $pro->nombre; ?></td>
-          <td><?= $pro->precio; ?></td>
-          <td><?= $pro->stock; ?></td>
+          <td><?= $pro['id']; ?></td>
+          <td><?= $pro['nombre']; ?></td>
+          <td><?= $pro['precio']; ?></td>
+          <td><?= $pro['stock']; ?></td>
           <td>
             <a href="<?= base_url ?>producto/editar&id=<?= $pro->id; ?>" class="badge badge-primary mr-lg-3 pl-lg-3 pr-lg-3 white-letters">Editar</a>
           </td>
