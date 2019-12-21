@@ -33,6 +33,7 @@ class Categoria{
   public function getAll(){
     //$categorias = $this->db->get_data("SELECT * FROM categorias ORDER BY id DESC;");
       $categorias = $this->db->get_data("SELECT * FROM categorias ORDER BY id DESC;");
+//      var_dump($categorias);return;
     return $categorias;
   }
 

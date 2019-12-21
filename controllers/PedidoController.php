@@ -31,6 +31,7 @@ class pedidoController
 
       //guardar datos en db
       if ($provincia && $localidad && $direccion) {
+
           $pedido = new Pedido();
           $pedido->setUsuarioId($usuario_id);
           $pedido->setProvincia($provincia);
@@ -41,12 +42,15 @@ class pedidoController
           // iniciamos transacción
           $this->db->beginTransaction();
           try {
+
               $pedido->save();
               $pedido->save_linea();
 
               $this->db->commit();
 
           } catch (\Exception $e) {
+              die('error');
+
               $_SESSION['pedido'] = 'failed';
               $this->db->rollback();
           }

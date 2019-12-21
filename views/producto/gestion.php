@@ -46,7 +46,9 @@ if (isset($_SESSION['complete'])) {
         <th colspan="2">Editar / Eliminar</th>
       </tr>
     </thead>
-    <?php while ($pro = $productos) : ?>
+      <?php foreach($productos['DATA'] as $key => $pro): ?>
+
+<!--      --><?php //while ($pro = $productos) : ?>
       <tbody>
         <tr>
           <td><?= $pro['id']; ?></td>
@@ -54,13 +56,13 @@ if (isset($_SESSION['complete'])) {
           <td><?= $pro['precio']; ?></td>
           <td><?= $pro['stock']; ?></td>
           <td>
-            <a href="<?= base_url ?>producto/editar&id=<?= $pro->id; ?>" class="badge badge-primary mr-lg-3 pl-lg-3 pr-lg-3 white-letters">Editar</a>
+            <a href="<?= base_url ?>producto/editar&id=<?= $pro['id']; ?>" class="badge badge-primary mr-lg-3 pl-lg-3 pr-lg-3 white-letters">Editar</a>
           </td>
           <td>
-            <a href="<?= base_url ?>producto/eliminar&id=<?= $pro->id; ?>" class="badge badge-danger mr-lg-3 pl-lg-3 pr-lg-3 white-letters">Eliminar</a>
+            <a href="<?= base_url ?>producto/eliminar&id=<?= $pro['id']; ?>" class="badge badge-danger mr-lg-3 pl-lg-3 pr-lg-3 white-letters">Eliminar</a>
           </td>
         </tr>
       </tbody>
-    <?php endwhile; ?>
+    <?php endforeach; ?>
   </table>
 </div>

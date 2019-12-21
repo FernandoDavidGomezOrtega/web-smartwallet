@@ -124,9 +124,22 @@ class Producto{
   }
 
   public function save(){
-    $sql = "INSERT INTO productos VALUES(NULL, '{$this->getCategoriaId()}', '{$this->getNombre()}', '{$this->getDescripcion()}', {$this->getPrecio()}, '{$this->getStock()}', '{$this->getOferta()}', CURDATE(), '{$this->getImagen()}'  )";
 
-    $save = $this->db->exec($sql);
+
+      $sql = "INSERT INTO productos VALUES(NULL,  %s,'%s','%s',%s,%s,'no', CURDATE(),'%s'  )";
+
+      $sqlWithParameters = sprintf($sql,
+          $this->getCategoriaId(),
+          $this->getNombre(),
+          $this->getDescripcion(),
+          $this->getPrecio(),
+          $this->getStock(),
+//          $this->getOferta(),
+          $this->getImagen()
+      );
+//      die($sqlWithParameters);;return;
+      $save = $this->db->exec($sqlWithParameters,true);
+//      die($save);;return;
 
     $result = false;
       if ($save['STATUS'] == 'OK') {
@@ -136,15 +149,35 @@ class Producto{
   }
 
   public function edit(){
-    $sql = "UPDATE productos SET categoria_id='{$this->getCategoriaId()}', nombre='{$this->getNombre()}', descripcion='{$this->getDescripcion()}', precio={$this->getPrecio()}, stock='{$this->getStock()}'";
+    $sql = "UPDATE productos SET categoria_id='%s', nombre='%s', descripcion='%s', precio=%s, stock=%s";
 
-    if ($this->getImagen() != null) {
-      $sql .= ", imagen='{$this->getImagen()}'";
-    }
+      if ($this->getImagen() != null) {
+          $sql .= ", imagen='{$this->getImagen()}'";
+      }
 
-    $sql .= " WHERE id={$this->id}";
+      $sql .= " WHERE id={$this->id}";
 
-    $save = $this->db->exec($sql);
+      $sqlWithParameters = sprintf($sql,
+          $this->getCategoriaId(),
+          $this->getNombre(),
+          $this->getDescripcion(),
+          $this->getPrecio(),
+          $this->getStock()
+//          $this->getOferta(),
+//          $this->getImagen()
+      );
+
+
+//
+//    if ($this->getImagen() != null) {
+//      $sql .= ", imagen='{$this->getImagen()}'";
+//    }
+//
+//    $sql .= " WHERE id={$this->id}";
+
+      //      die($sqlWithParameters);;return;
+      $save = $this->db->exec($sqlWithParameters,true);
+//      die($save);;return;
 
     $result = false;
       if ($save['STATUS'] == 'OK') {

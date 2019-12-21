@@ -38,8 +38,10 @@ class productoController{
 
   public function save() {
     Utils::isAdmin();
-    if (isset($_POST)) {
-      $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
+
+      if (isset($_POST)) {
+
+          $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
       $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : false;
       $precio = isset($_POST['precio']) ? $_POST['precio'] : false;
       $stock = isset($_POST['stock']) ? $_POST['stock'] : false;
@@ -47,7 +49,8 @@ class productoController{
       // $imagen = isset($_POST['imagen']) ? $_POST['imagen'] : false;
 
       if ($nombre && $descripcion && $precio && $stock && $categoria) {
-        $producto = new Producto();
+
+          $producto = new Producto();
         $producto->setNombre($nombre);
         $producto->setDescripcion($descripcion);
         $producto->setPrecio($precio);
@@ -76,6 +79,7 @@ class productoController{
           $save = $producto->edit();
 
         } else {
+
             $save = $producto->save();
         }
 
@@ -105,6 +109,8 @@ class productoController{
       $producto = new Producto();
       $producto->setId($id);
       $pro = $producto->getOne();
+
+//      var_dump($pro);die();
 
       require_once 'views/producto/crear.php';
     } else{
