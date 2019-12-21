@@ -6,14 +6,14 @@
   </p>
   <br>
   <?php if (isset($pedido)) : ?>
+    <?php $pedido =$pedido['DATA'][0] ; ?>
     <h3>Datos del pedido</h3>
     <br>
-
     <p>
-      Número de pedido: <?= $pedido->id; ?>
+      Número de pedido: <?= $pedido['id']; ?>
     </p>
     <p>
-      Total a pagar: <?= $pedido->coste; ?> €
+      Total a pagar: <?= $pedido['coste']; ?> €
     </p>
     <p>
       Productos:
@@ -29,26 +29,26 @@
             <th>Unidades</th>
           </tr>
         </thead>
-        <?php while ($producto = $productos->fetch_object()) : ?>
+        <?php foreach($productos['DATA'] as $key => $producto): ?>
           <tr>
             <td class="align-middle">
-              <?php if ($producto->imagen != null) : ?>
-                <img class="img-max-height-90px" src="<?= base_url ?>uploads/images/<?= $producto->imagen ?>" alt="producto wallet">
+              <?php if ($producto['imagen'] != null) : ?>
+                <img class="img-max-height-90px" src="<?= base_url ?>uploads/images/<?= $producto['imagen'] ?>" alt="producto wallet">
               <?php else : ?>
                 <img class="img-max-height-90px" src="<?= base_url ?>assets/img/no-image-available.jpg" alt="producto wallet">
               <?php endif; ?>
             </td>
             <td class="align-middle">
-              <a href='<?= base_url ?>producto/ver&id=<?= $producto->id ?>' class=''><?= $producto->nombre ?></a>
+              <a href='<?= base_url ?>producto/ver&id=<?= $producto['id'] ?>' class=''><?= $producto['nombre'] ?></a>
             </td>
             <td class="align-middle">
-              <?= $producto->precio ?>
+              <?= $producto['precio'] ?>
             </td>
             <td class="align-middle">
-              <?= $producto->unidades; ?>
+              <?= $producto['unidades']; ?>
             </td>
           </tr>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
       </table>
     </div>
 

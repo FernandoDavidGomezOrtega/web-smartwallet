@@ -62,7 +62,7 @@ ob_start();
 
 		<?php else : ?>
 			<div class="alert alert-success text-align-center" role="alert">
-				<?= $_SESSION['identity']->nombre ?> <?= $_SESSION['identity']->apellidos ?>
+				<?= $_SESSION['identity']['nombre'] ?> <?= $_SESSION['identity']['apellidos'] ?>
 			</div>
 		<?php endif; ?>
 
@@ -86,7 +86,7 @@ ob_start();
 				</ul>
 			<?php elseif (!isset($_SESSION['identity'])) : ?>
 				<div class="row">
-					<div class="alert alert-danger text-align-center col-lg-10 offset-lg-1" role="alert">
+					<div class="alert alert-warning text-align-center col-lg-10 offset-lg-1" role="alert">
 						Si no tienes una cuenta <a href="<?= base_url ?>usuario/registro" class="red-letters">regístrate aquí</a>
 					</div>
 				</div>

@@ -16,7 +16,8 @@ class Pedido
   //conexión db
   public function __construct()
   {
-    $this->db = Database::connect();
+    //Obtenemos la instancia de la BD
+    $this->db = Database::getInstance();
   }
 
 
@@ -47,7 +48,7 @@ class Pedido
 
   public function setProvincia($provincia)
   {
-    $this->provincia = $this->db->real_escape_string($provincia);
+    $this->provincia = $provincia;
   }
 
   public function getLocalidad()
@@ -57,7 +58,7 @@ class Pedido
 
   public function setLocalidad($localidad)
   {
-    $this->localidad = $this->db->real_escape_string($localidad);
+    $this->localidad = $localidad;
   }
 
   public function getDireccion()
@@ -67,7 +68,7 @@ class Pedido
 
   public function setDireccion($direccion)
   {
-    $this->direccion = $this->db->real_escape_string($direccion);
+    $this->direccion = $direccion;
   }
 
   public function getCoste()
@@ -112,14 +113,14 @@ class Pedido
 
   public function getAll()
   {
-    $productos = $this->db->query("SELECT * FROM pedidos ORDER BY id DESC");
+    $productos = $this->db->get_data("SELECT * FROM pedidos ORDER BY id DESC");
     return $productos;
   }
 
   public function getOne()
   {
-    $producto = $this->db->query("SELECT * FROM pedidos WHERE id = {$this->getId()}");
-    return $producto->fetch_object();
+    $producto = $this->db->get_data("SELECT * FROM pedidos WHERE id = {$this->getId()}");
+    return $producto;
   }
 
   public function getOneByUser()
@@ -127,9 +128,11 @@ class Pedido
     $sql = "SELECT p.id, p.coste FROM pedidos p  "
               ."WHERE p.usuario_id = {$this->getUsuarioId()} "
               ."ORDER BY id DESC LIMIT 1;";
-    $pedido = $this->db->query($sql);
 
-    return $pedido->fetch_object();
+
+    $pedido = $this->db->get_data($sql);
+
+    return $pedido;
   }
 
   public function getAllByUser()
@@ -137,7 +140,7 @@ class Pedido
     $sql = "SELECT p.* FROM pedidos p  "
               ."WHERE p.usuario_id = {$this->getUsuarioId()} "
               ."ORDER BY id DESC;";
-    $pedidos = $this->db->query($sql);
+    $pedidos = $this->db->get_data($sql);
 
     return $pedidos;
   }
@@ -150,60 +153,84 @@ class Pedido
             ."INNER JOIN lineas_pedidos lp ON pr.id = lp.producto_id "
             ."WHERE lp.pedido_id = {$id}";
 
-    $productos = $this->db->query($sql);
+    $productos = $this->db->get_data($sql);
 
     return $productos;
   }
 
   public function save()
   {
-    $sql = "INSERT INTO pedidos VALUES(NULL, {$this->getUsuarioId()}, '{$this->getProvincia()}', "
-              ."'{$this->getLocalidad()}', '{$this->getDireccion()}', {$this->getCoste()}, 'Pendiente de pago', "
-              ."CURDATE(), CURTIME()  )";
+//    $sql = "INSERT INTO pedidos VALUES(NULL, {$this->getUsuarioId()}, '{$this->getProvincia()}', "
+//              ."'{$this->getLocalidad()}', '{$this->getDireccion()}', {$this->getCoste()}, 'Pendiente de pago', "
+//              ."CURDATE(), CURTIME()  )";
+//
+//    $save = $this->db->exec($sql,true);
 
-    $save = $this->db->query($sql);
+      $sql = "INSERT INTO pedidos VALUES(NULL, %s,'%s','%s','%s',%s, '%s', CURDATE(), CURTIME())";
+      $sqlWithParameters = sprintf($sql,
+          $this->getUsuarioId(),
+          $this->getProvincia(),
+          $this->getLocalidad(),
+          $this->getDireccion(),
+          $this->getCoste(),
+          'Pendiente de pago'
+      );
+      $save = $this->db->exec($sqlWithParameters,true);
 
     $result = false;
-    if ($save) {
+  if ($save['STATUS'] == 'OK') {
       $result = true;
-    }
+  }
     return $result;
   }
 
   public function save_linea() {
-    $sql = "SELECT LAST_INSERT_ID() as 'pedido';";
+    $sql = "SELECT LAST_INSERT_ID() as 'id';";
 
-    $query = $this->db->query($sql);
-    $pedido_id = $query->fetch_object()->pedido;
+    $query = $this->db->get_data($sql,true);
+//     var_dump($query); return ;
+      $pedido_id = $query['DATA'][0]['id'] ;
 
     foreach ($_SESSION['carrito'] as $elemento) {
       $producto = $elemento['producto'];
 
-      $insert = "INSERT INTO lineas_pedidos values(null, {$pedido_id}, {$producto->id}, {$elemento['unidades']} )";
-      $save =$this->db->query($insert);
+      $insert = "INSERT INTO lineas_pedidos values(null, {$pedido_id}, {$producto['id']}, {$elemento['unidades']} )";
+      $save =$this->db->exec($insert,true);
 
     }
 
     $result = false;
-    if ($save) {
-      $result = true;
-    }
+      if ($save['STATUS'] == 'OK') {
+          $result = true;
+      }
     return $result;
 
 
   }
 
   public function edit() {
-    $sql = "UPDATE pedidos SET estado='{$this->getEstado()}'"
-            . " WHERE id={$this->id}";
+      $sql = "UPDATE pedidos SET estado='%s'"
+          . " WHERE id=%s";
+      $sqlWithParameters = sprintf($sql,
+          $this->getEstado(),
+          $this->getId()
+      );
 
-    $save = $this->db->query($sql);
+//      var_dump($sqlWithParameters);return;die();
+
+      $save = $this->db->exec($sqlWithParameters,true);
+
+
+//    $sql = "UPDATE pedidos SET estado='{$this->getEstado()}'"
+//            . " WHERE id={$this->id}";
+//
+//    $save = $this->db->exec($sql);
 
     $result = false;
-    if ($save) {
-      $result = true;
+      if ($save['STATUS'] == 'OK') {
+          $result = true;
+      }
 
-    }
     return $result;
 
   }

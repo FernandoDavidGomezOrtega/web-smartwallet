@@ -23,52 +23,9 @@ ob_start();
   <!-- Google fonst Permanent Marker -->
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 
-  <!-- jQuery -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
-
-  <!-- Mis scripts -->
-  <!-- <script type="text/javaScript" src="js/main.js"></script> -->
     <title>Smart Wallet</title>
   <script>
-    if(window.location.href.indexOf("pedido/hacer") > -1) {
-        document.title= 'Datos de envío' ;
-    } 
-    if(window.location.href.indexOf("carrito/index") > -1) {
-        document.title= 'Carrito' ;
-    } 
-    if(window.location.href.indexOf("producto/ver") > -1) {
-        document.title= 'Producto' ;
-    }
-    if(window.location.href.indexOf("pedido/confirmado") > -1) {
-        document.title= 'Pedido registrado' ;
-    } 
-    if(window.location.href.indexOf("pedido/mis_pedidos") > -1) {
-        document.title= 'Mis pedidos' ;
-    }   
-    if(window.location.href.indexOf("categoria/ver") > -1) {
-        document.title= 'Categoría' ;
-    }
-    if(window.location.href.indexOf("categoria/index") > -1) {
-        document.title= 'Gestionar categorías' ;
-    }
-    if(window.location.href.indexOf("categoria/crear") > -1) {
-        document.title= 'Crear categoría' ;
-    }
-    if(window.location.href.indexOf("producto/gestion") > -1) {
-        document.title= 'Gestión de productos' ;
-    }
-    if(window.location.href.indexOf("producto/crear") > -1) {
-        document.title= 'Dar de alta producto' ;
-    }
-    if(window.location.href.indexOf("producto/editar") > -1) {
-        document.title= 'Editar producto' ;
-    }
-    if(window.location.href.indexOf("pedido/gestion") > -1) {
-        document.title= 'Gestionar pedidos' ;
-    }
-    if(window.location.href.indexOf("pedido/detalle") > -1) {
-        document.title= 'Detalle del pedido' ;
-    }
+   
 </script>
 
 
@@ -99,7 +56,7 @@ ob_start();
             <li class="nav-item ">
               <div class="dropdown show no-active" id="no-active">
                 <a class=" nav-link  color_nav_link_item green-letters mr-lg-3" name="disabled" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-                  <b class="categorias">Bienvenido/a <?= $_SESSION['identity']->nombre; ?></b>
+                  <b class="categorias">Bienvenido/a <?= $_SESSION['identity']['nombre']; ?></b>
                 </a>
               </div>
             </li>
@@ -164,9 +121,9 @@ ob_start();
                 <?php $categorias = Utils::showCategorias(); ?>
 
 
-                <?php while ($cat = $categorias->fetch_object()) : ?>
-                  <a class="dropdown-item" href="<?= base_url ?>categoria/ver&id=<?= $cat->id ?>"><?= $cat->nombre ?></a>
-                <?php endwhile; ?>
+                  <?php foreach($categorias['DATA'] as $key => $cat): ?>
+                  <a class="dropdown-item" href="<?= base_url ?>categoria/ver&id=<?= $cat['id'] ?>"><?= $cat['nombre'] ?></a>
+                <?php endforeach; ?>
 
 
 

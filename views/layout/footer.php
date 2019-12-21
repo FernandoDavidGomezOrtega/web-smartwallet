@@ -36,7 +36,7 @@
             </div>
             <!-- Grid column -->
 
-            
+
             <hr class="clearfix w-100 d-md-none">
 
             <!-- Grid column -->
@@ -104,16 +104,11 @@
     <!-- Redes sociales -->
     <ul class="list-unstyled list-inline text-center">
         <li class="list-inline-item">
-            <a class="btn-floating btn-gplus mx-1" href="https://sites.google.com/fp.uoc.edu/grupo-djf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="<?= base_url ?>assets/img/google-plus-3-64.png" alt="">
+            <a class="btn-floating btn-gplus mx-1" href="https://sites.google.com/fp.uoc.edu/grupo-djf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="<?= base_url ?>assets/img/google-plus-3-64 - copia.png" alt="">
             </a>
         </li>
         <li class="list-inline-item">
-            <a class="btn-floating btn-fb mx-1" href="" target="_blank">
-                <img src="<?= base_url ?>assets/img/youtube-3-6490.png" alt="">
-            </a>
-        </li>
-        <li class="list-inline-item">
-            <a class="btn-floating btn-tw mx-1" href="https://github.com/FernandoDavidGomezOrtega/web-smartwallet" target="_blank"><img src="<?= base_url ?>assets/img/github-8-6495.png" alt="">
+            <a class="btn-floating btn-tw mx-1" href="https://github.com/FernandoDavidGomezOrtega/web-smartwallet" target="_blank"><img src="<?= base_url ?>assets/img/github-8-64 - copia.png" alt="">
             </a>
         </li>
     </ul>
@@ -144,7 +139,6 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 

@@ -5,10 +5,15 @@
 </a>
 
 <?php if (isset($_SESSION['complete'])) : ?>
-  <strong class="alert_green"><?= $_SESSION['complete'] ?></strong>
+  <div class="alert alert-success" role="alert">
+    <?= $_SESSION['complete'] ?>
+  </div>
+  
 
 <?php elseif (isset($_SESSION['failed'])) : ?>
-  <strong class="alert_red"><?= $_SESSION['failed'] ?></strong>
+  <div class="alert alert-success" role="alert">
+    <?= $_SESSION['failed'] ?>
+  </div>
 <?php endif; ?>
 
 <?php
@@ -41,21 +46,23 @@ if (isset($_SESSION['complete'])) {
         <th colspan="2">Editar / Eliminar</th>
       </tr>
     </thead>
-    <?php while ($pro = $productos->fetch_object()) : ?>
+      <?php foreach($productos['DATA'] as $key => $pro): ?>
+
+<!--      --><?php //while ($pro = $productos) : ?>
       <tbody>
         <tr>
-          <td><?= $pro->id; ?></td>
-          <td><?= $pro->nombre; ?></td>
-          <td><?= $pro->precio; ?></td>
-          <td><?= $pro->stock; ?></td>
+          <td><?= $pro['id']; ?></td>
+          <td><?= $pro['nombre']; ?></td>
+          <td><?= $pro['precio']; ?></td>
+          <td><?= $pro['stock']; ?></td>
           <td>
-            <a href="<?= base_url ?>producto/editar&id=<?= $pro->id; ?>" class="badge badge-primary mr-lg-3 pl-lg-3 pr-lg-3 white-letters">Editar</a>
+            <a href="<?= base_url ?>producto/editar&id=<?= $pro['id']; ?>" class="badge badge-primary mr-lg-3 pl-lg-3 pr-lg-3 white-letters">Editar</a>
           </td>
           <td>
-            <a href="<?= base_url ?>producto/eliminar&id=<?= $pro->id; ?>" class="badge badge-danger mr-lg-3 pl-lg-3 pr-lg-3 white-letters">Eliminar</a>
+            <a href="<?= base_url ?>producto/eliminar&id=<?= $pro['id']; ?>" class="badge badge-danger mr-lg-3 pl-lg-3 pr-lg-3 white-letters">Eliminar</a>
           </td>
         </tr>
       </tbody>
-    <?php endwhile; ?>
+    <?php endforeach; ?>
   </table>
 </div>

@@ -9,11 +9,13 @@
     <th>ID</th>
     <th>NOMBRE</th>
   </tr>
-  <?php while ($cat =$categorias->fetch_object()) : ?>
+
+    <?php  foreach($categorias['DATA'] as $key => $categoria): ?>
+
     <tr>
-      <td><?=$cat->id;?></td>
-      <td><?=$cat->nombre;?></td>
+      <td><?=$categoria['id'];?></td>
+      <td><?=$categoria['nombre'];?></td>
     </tr>
-  <?php endwhile; ?>
+  <?php endforeach; ?>
 </table>
 
