@@ -27,7 +27,7 @@ class Categoria{
   }
 
   public function setNombre($nombre) {
-    $this->nombre = nombre;
+    $this->nombre = $nombre;
   }
 
   public function getAll(){
@@ -43,8 +43,9 @@ class Categoria{
 
   public function save(){
     $sql = "INSERT INTO categorias VALUES(NULL, '{$this->getNombre()}');";
+      var_dump($sql);return;
 
-    $save = $this->db->exec($sql);
+    $save = $this->db->exec($sql,$withOutQuotes=false);
 
     $result = false;
     if ($save) {

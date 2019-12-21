@@ -44,6 +44,8 @@ class categoriaController{
       $categoria = new Categoria();
       $categoria->setNombre($_POST['nombre']);
       $save = $categoria->save();
+        var_dump($save);return;
+
     }
     header('Location: ' . base_url . 'categoria/index');
   }

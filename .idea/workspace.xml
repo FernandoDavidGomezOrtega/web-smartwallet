@@ -3,26 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="506f3e1e-416f-4d85-8716-d7cf08f2a329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/CarritoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CarritoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/CategoriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CategoriaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/PedidoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/PedidoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/ProductoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ProductoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/UsuarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UsuarioController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/categoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/categoria.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/pedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/pedido.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/producto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/usuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/carrito/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/carrito/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/categoria/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categoria/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pedido/confirmado.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pedido/confirmado.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pedido/detalle.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pedido/detalle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pedido/mis_pedidos.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pedido/mis_pedidos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/producto/destacados.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/producto/destacados.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/producto/gestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/producto/gestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/producto/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/producto/ver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/categoria/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/categoria/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +54,7 @@
       <workItem from="1575287439635" duration="3313000" />
       <workItem from="1575712965001" duration="202000" />
       <workItem from="1576921203567" duration="2513000" />
-      <workItem from="1576924523609" duration="10518000" />
+      <workItem from="1576924523609" duration="14014000" />
     </task>
     <servers />
   </component>
