@@ -42,15 +42,16 @@ class Categoria{
   }
 
   public function save(){
-    $sql = "INSERT INTO categorias VALUES(NULL, '{$this->getNombre()}');";
-      var_dump($sql);return;
-
-    $save = $this->db->exec($sql,$withOutQuotes=false);
+    $sql = "INSERT INTO categorias VALUES(NULL, '%s');";
+//      var_dump($sql);return;
+      $sqlWithParameters = sprintf($sql,
+          $this->getNombre());
+    $save = $this->db->exec($sqlWithParameters,true);
 
     $result = false;
-    if ($save) {
-      $result = true;
-    }
+      if ($save['STATUS'] == 'OK') {
+          $result = true;
+      }
     return $result;
   }
 }
