@@ -209,10 +209,22 @@ class Pedido
   }
 
   public function edit() {
-    $sql = "UPDATE pedidos SET estado='{$this->getEstado()}'"
-            . " WHERE id={$this->id}";
+      $sql = "UPDATE pedidos SET estado='%s'"
+          . " WHERE id=%s";
+      $sqlWithParameters = sprintf($sql,
+          $this->getEstado(),
+          $this->getId()
+      );
 
-    $save = $this->db->exec($sql);
+//      var_dump($sqlWithParameters);return;die();
+
+      $save = $this->db->exec($sqlWithParameters,true);
+
+
+//    $sql = "UPDATE pedidos SET estado='{$this->getEstado()}'"
+//            . " WHERE id={$this->id}";
+//
+//    $save = $this->db->exec($sql);
 
     $result = false;
       if ($save['STATUS'] == 'OK') {

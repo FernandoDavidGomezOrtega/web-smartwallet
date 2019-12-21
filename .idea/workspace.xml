@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/PedidoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/PedidoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/pedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/pedido.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pedido/detalle.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pedido/detalle.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +53,7 @@
       <workItem from="1575287439635" duration="3313000" />
       <workItem from="1575712965001" duration="202000" />
       <workItem from="1576921203567" duration="2513000" />
-      <workItem from="1576924523609" duration="21858000" />
+      <workItem from="1576924523609" duration="23322000" />
     </task>
     <servers />
   </component>

@@ -130,6 +130,7 @@ class pedidoController
     Utils::isAdmin();
 
     if(isset($_POST['pedido_id']) && isset($_POST['estado'])) {
+//        var_dump($_POST['pedido_id'], $_POST['estado']); die();
       //recoger datos del form
       $id = $_POST['pedido_id'];
       $estado = $_POST['estado'];
