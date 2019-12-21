@@ -96,18 +96,18 @@ class Producto{
   }
 
   public function getAllFromCategory($id) {
-//    $sql = "SELECT p.*, c.nombre AS 'categoryname' FROM productos p "
-//      . "INNER JOIN categorias c ON c.id = p.categoria_id "
-//      . "WHERE p.categoria_id = 2 "
-//      . "ORDER BY id DESC";
-      $sql  = "SELECT * from productos p ";
-      $sql .= "INNER JOIN categorias c ON c.id = p.categoria_id " ;
-      $sql .= "WHERE p.categoria_id = ".$id." ";
-      $sql .= "ORDER BY p.id DESC" ;
 
+//      $sql  = "SELECT * from productos p ";
+//      $sql .= "INNER JOIN categorias c ON c.id = p.categoria_id " ;
+//      $sql .= "WHERE p.categoria_id = ".$id." ";
+//      $sql .= "ORDER BY p.id DESC" ;
 
+      $sql = "SELECT * FROM productos WHERE categoria_id = " . $id;
+
+//var_dump($sql);return;
 
     $productos = $this->db->get_data($sql);
+//var_dump($productos);return;
 
 
     return $productos;
