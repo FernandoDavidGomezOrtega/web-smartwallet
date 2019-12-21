@@ -14,25 +14,23 @@
       <th>Estado</th>
     </tr>
 
-    <?php
-    while ($ped = $pedidos->fetch_object()) :
-      ?>
+      <?php foreach($pedidos['DATA'] as $key => $pedido): ?>
       <tr>
         <td>
-          <a href='<?= base_url ?>pedido/detalle&id=<?= $ped->id; ?>' class=''><?= $ped->id; ?></a>
+          <a href='<?= base_url ?>pedido/detalle&id=<?= $pedido['id']; ?>' class=''><?= $pedido['id']; ?></a>
         </td>
         <td>
-          <?= $ped->coste; ?> €
+          <?= $pedido['coste']; ?> €
         </td>
         <td>
-          <?= $ped->fecha; ?>
+          <?= $pedido['fecha']; ?>
         </td>
         <td>
-        <?= $ped->estado; ?>
-          <!-- <?= Utils::showStatus($ped->estado) ?> -->
+        <?= $pedido['estado'] ?>
+          <!-- <?= Utils::showStatus($pedido['estado']) ?> -->
         </td>
       </tr>
-    <?php endwhile; ?>
+    <?php endforeach; ?>
 
   </table>
 </div>

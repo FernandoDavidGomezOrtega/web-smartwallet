@@ -12,18 +12,20 @@ class categoriaController{
   }
 
   public function ver() {
+      $productos = [] ;
     if (isset($_GET['id'])) {
       $id = ($_GET['id']);
+      $productos = new Producto();
 
-      //conseguir categoria
-      $categoria = new Categoria();
-      $categoria->setId($id);
-      $categoria = $categoria->getOne();
+      $productos = $productos->getAllFromCategory($id);
 
-      //conseguir productos
-      $producto = new Producto();
-      $producto->setCategoriaId($id);
-      $productos = $producto->getAllFromCategory();
+      $categorias = new Categoria();
+
+      $categoria = $categorias->getOne($id)['DATA'][0];
+
+
+
+
     }
 
     require_once 'views/categoria/ver.php';
@@ -42,6 +44,8 @@ class categoriaController{
       $categoria = new Categoria();
       $categoria->setNombre($_POST['nombre']);
       $save = $categoria->save();
+//        var_dump($save);return;
+
     }
     header('Location: ' . base_url . 'categoria/index');
   }

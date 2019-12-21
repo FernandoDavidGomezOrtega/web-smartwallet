@@ -5,16 +5,17 @@
     <div id='' class='row'>
       <div id='' class='col-lg-8 offset-lg-2'>
         <form class="" action='<?= base_url ?>pedido/estado' method="post" enctype="multipart/form-data" method="post" name="">
-          <input type='hidden' value='<?= $pedido->id; ?>' name='pedido_id' id='' />
+          <input type='hidden' value='<?= $pedido['DATA']['0']['id']; ?>' name='pedido_id' id='' />
+<!--            --><?//= $pedido['DATA']['0']['id']; ?>
           <div class="form-group">
             <label for="estado">Cambiar estado del pedido</label>
             <select class='' name='estado' id=''>
-              <option value='confirmed' <?= $pedido->estado == 'Pendiente de pago' ? 'selected' : ''; ?>>Pendiente de pago</option>
-              <option value='confirmed' <?= $pedido->estado == 'Confirmado' ? 'selected' : ''; ?>>Confirmado</option>
-              <option value='preparation' <?= $pedido->estado == 'En preparación' ? 'selected' : ''; ?>>En preparación</option>
-              <option value='ready' <?= $pedido->estado == 'Preparado para enviar' ? 'selected' : ''; ?>>Preparado para enviar</option>
-              <option value='sended' <?= $pedido->estado == 'Enviado' ? 'selected' : ''; ?>>Enviado</option>
-              <option value='sended' <?= $pedido->estado == 'Entregado' ? 'selected' : ''; ?>>Entregado</option>
+              <option value='Pendiente de pago' <?= $pedido['DATA']['0']['estado'] == 'Pendiente de pago' ? 'selected' : ''; ?>>Pendiente de pago</option>
+              <option value='Confirmado' <?= $pedido['DATA']['0']['estado'] == 'Confirmado' ? 'selected' : ''; ?>>Confirmado</option>
+              <option value='En preparación' <?= $pedido['DATA']['0']['estado'] == 'En preparación' ? 'selected' : ''; ?>>En preparación</option>
+              <option value='Preparado para enviar' <?= $pedido['DATA']['0']['estado'] == 'Preparado para enviar' ? 'selected' : ''; ?>>Preparado para enviar</option>
+              <option value='Enviado' <?= $pedido['DATA']['0']['estado'] == 'Enviado' ? 'selected' : ''; ?>>Enviado</option>
+              <option value='Entregado' <?= $pedido['DATA']['0']['estado'] == 'Entregado' ? 'selected' : ''; ?>>Entregado</option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary">Cambiar estado</button>
@@ -27,13 +28,13 @@
   <?php endif; ?>
   <h3>Dirección de envío</h3>
   <p>
-    Provincia: <?= $pedido->provincia; ?>
+    Provincia: <?= $pedido['DATA']['0']['provincia']; ?>
   </p>
   <p>
-    Ciudad: <?= $pedido->localidad; ?>
+    Ciudad: <?= $pedido['DATA']['0']['localidad']; ?>
   </p>
   <p>
-    Dirección: <?= $pedido->direccion; ?>
+    Dirección: <?= $pedido['DATA']['0']['direccion']; ?>
   </p>
   <br />
 
@@ -41,14 +42,14 @@
   <br>
 
   <p>
-    Estado: <?= $pedido->estado ?>
-    <!-- Estado: <?= Utils::showStatus($pedido->estado) ?> -->
+    Estado: <?= $pedido['DATA']['0']['estado'] ?>
+    <!-- Estado: <?= Utils::showStatus($pedido['DATA']['0']['estado']) ?> -->
   </p>
   <p>
-    Número de pedido: <?= $pedido->id; ?>
+    Número de pedido: <?= $pedido['DATA']['0']['id']; ?>
   </p>
   <p>
-    Total: <?= $pedido->coste; ?> €
+    Total: <?= $pedido['DATA']['0']['coste']; ?> €
   </p>
   <p>
     Productos:
@@ -64,26 +65,26 @@
           <th>Unidades</th>
         </tr>
       </thead>
-      <?php while ($producto = $productos->fetch_object()) : ?>
+      <?php foreach($productos['DATA'] as $key => $product): ?>
         <tr>
           <td class="">
-            <?php if ($producto->imagen != null) : ?>
-              <img class="img-max-height-90px" src="<?= base_url ?>uploads/images/<?= $producto->imagen ?>" alt="producto wallet">
+            <?php if ($product['imagen'] != null) : ?>
+              <img class="img-max-height-90px" src="<?= base_url ?>uploads/images/<?= $product['imagen'] ?>" alt="producto wallet">
             <?php else : ?>
               <img class="img-max-height-90px" src="<?= base_url ?>assets/img/no-image-available.jpg" alt="producto wallet">
             <?php endif; ?>
           </td>
           <td class="">
-            <a href='<?= base_url ?>producto/ver&id=<?= $producto->id ?>' class=''><?= $producto->nombre ?></a>
+            <a href='<?= base_url ?>producto/ver&id=<?= $product['id'] ?>' class=''><?= $product['nombre'] ?></a>
           </td>
           <td class="">
-            <?= $producto->precio ?>
+            <?= $product['precio'] ?>
           </td>
           <td class="">
-            <?= $producto->unidades; ?>
+            <?= $product['unidades']; ?>
           </td>
         </tr>
-      <?php endwhile; ?>
+      <?php endforeach; ?>
     </table>
   </div>
 <?php endif; ?>

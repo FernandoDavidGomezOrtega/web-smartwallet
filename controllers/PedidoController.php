@@ -1,8 +1,18 @@
+
 <?php
 require_once 'models/pedido.php';
 
 class pedidoController
 {
+    private $db;
+
+    //conexión db
+    public function __construct()
+    {
+        //Obtenemos la instancia de la BD
+        $this->db = Database::getInstance();
+    }
+
   public function hacer()
   {
 
@@ -12,7 +22,7 @@ class pedidoController
   public function add()
   {
     if (isset($_SESSION['identity'])) {
-      $usuario_id = $_SESSION['identity']->id;
+      $usuario_id = $_SESSION['identity']['id'];
       $provincia = isset($_POST['provincia']) ? $_POST['provincia'] : false;
       $localidad = isset($_POST['localidad']) ? $_POST['localidad'] : false;
       $direccion = isset($_POST['direccion']) ? $_POST['direccion'] : false;
@@ -21,29 +31,38 @@ class pedidoController
 
       //guardar datos en db
       if ($provincia && $localidad && $direccion) {
-        $pedido = new Pedido();
-        $pedido->setUsuarioId($usuario_id);
-        $pedido->setProvincia($provincia);
-        $pedido->setLocalidad($localidad);
-        $pedido->setDireccion($direccion);
-        $pedido->setCoste($coste);
 
-        $save = $pedido->save();
+          $pedido = new Pedido();
+          $pedido->setUsuarioId($usuario_id);
+          $pedido->setProvincia($provincia);
+          $pedido->setLocalidad($localidad);
+          $pedido->setDireccion($direccion);
+          $pedido->setCoste($coste);
 
-        //guardar linea_pedido
-        $save_linea = $pedido->save_linea();
+          // iniciamos transacción
+          $this->db->beginTransaction();
+          try {
 
-        if ($save && $save_linea) {
+              $pedido->save();
+
+              $pedido->save_linea();
+
+              $this->db->commit();
+//              var_dump($pedido); return;die();
+
+
+          } catch (\Exception $e) {
+//              die('error');
+
+              $_SESSION['pedido'] = 'failed';
+              $this->db->rollback();
+          }
+          $this->db->close();
+
           $_SESSION['pedido'] = 'complete';
           unset($_SESSION['carrito']);
-        } else {
-          $_SESSION['pedido'] = 'failed';
-        }
-      } else {
-        $_SESSION['pedido'] = 'failed';
+          header('Location: ' . base_url . 'pedido/confirmado');
       }
-
-      header('Location: ' . base_url . 'pedido/confirmado');
     } else {
       //redirigir al index
       header('Location: ' . base_url);
@@ -54,12 +73,15 @@ class pedidoController
     if(isset($_SESSION['identity'])) {
       $identity = $_SESSION['identity'];
       $pedido = new Pedido();
-      $pedido->setUsuarioId($identity->id);
+      $pedido->setUsuarioId($identity['id']);
 
-      $pedido = $pedido->getOneByUser();  
-      
+      $pedido = $pedido->getOneByUser();
       $pedido_productos = new Pedido();
-      $productos = $pedido_productos->getProductosByPedido($pedido->id);
+      $productos = $pedido_productos->getProductosByPedido($pedido['DATA'][0]['id']);
+
+//      var_dump($productos);return;
+
+
     }
 
     require_once 'views/pedido/confirmado.php';
@@ -67,7 +89,7 @@ class pedidoController
 
   public function mis_pedidos() {
     Utils::isIdentity();
-    $usuario_id = $_SESSION['identity']->id;
+    $usuario_id = $_SESSION['identity']['id'] ;
     $pedido = new Pedido();
 
     //sacar los pedidos del usuario
@@ -110,6 +132,7 @@ class pedidoController
     Utils::isAdmin();
 
     if(isset($_POST['pedido_id']) && isset($_POST['estado'])) {
+//        var_dump($_POST['pedido_id'], $_POST['estado']); die();
       //recoger datos del form
       $id = $_POST['pedido_id'];
       $estado = $_POST['estado'];

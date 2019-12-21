@@ -12,7 +12,8 @@ class Usuario{
 
   //conexión db
   public function __construct(){
-    $this->db = Database::connect();
+    //Obtenemos la instancia de la BD
+    $this->db = Database::getInstance();
   }
 
   function getId() {
@@ -32,7 +33,7 @@ class Usuario{
   }
 
   function getPassword() {
-      return password_hash($this->db->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
+      return password_hash($this->password, PASSWORD_BCRYPT, ['cost' => 4]);
   }
 
   function getRol() {
@@ -48,15 +49,15 @@ class Usuario{
   }
 
   function setNombre($nombre) {
-      $this->nombre = $this->db->real_escape_string($nombre);
+      $this->nombre = $nombre;
   }
 
   function setApellidos($apellidos) {
-      $this->apellidos = $this->db->real_escape_string($apellidos);
+      $this->apellidos = $apellidos;
   }
 
   function setEmail($email) {
-      $this->email = $this->db->real_escape_string($email);
+      $this->email = $email;
   }
 
   function setPassword($password) {
@@ -72,12 +73,18 @@ class Usuario{
   }
 
   public function save(){
-    $sql = "INSERT INTO usuarios VALUES(NULL, '{$this->getNombre()}', '{$this->getApellidos()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user', NULL  )";
+    $sql = "INSERT INTO usuarios VALUES(NULL, '%s','%s','%s','%s','%s', NULL)";
+    $sqlWithParameters = sprintf($sql,
+        $this->getNombre(),
+        $this->getApellidos(),
+        $this->getEmail(),
+        $this->getPassword()
+        , 'user'
+    );
 
-    $save = $this->db->query($sql);
-
+    $save = $this->db->exec($sqlWithParameters,true);
     $result = false;
-    if ($save) {
+    if ($save['STATUS'] == 'OK') {
       $result = true;
     }
     return $result;
@@ -87,24 +94,26 @@ class Usuario{
     $result = false;
     $email = $this->email;
     $password = $this->password;
+
+
     //comprobar si existe el usuario
     $sql = "SELECT * FROM usuarios WHERE email = '$email'";
-    $login = $this->db->query($sql);
-    
 
-    if ($login && $login->num_rows == 1) {
-      $usuario = $login->fetch_object();
+    $user = $this->db->get_data($sql,true);
+
+    if (count($user['DATA']) == 1) {
 
       //verificar la contraseña
-      $verify = password_verify($password, $usuario->password);
+      $verify = password_verify($password, $user['DATA'][0]['password']);
 
       if ($verify) {
-        $result = $usuario;
+        $result = $user;
       }
     }
 
     return $result;
   }
+
 
 
 

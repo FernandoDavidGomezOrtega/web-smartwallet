@@ -29,6 +29,8 @@ class carritoController
 					$_SESSION['carrito'][$indice]['unidades']++;
 					$counter++;
 				}
+
+
 			}	
 		}
 		
@@ -36,13 +38,13 @@ class carritoController
 			// Conseguir producto
 			$producto = new Producto();
 			$producto->setId($producto_id);
-			$producto = $producto->getOne();
+			$producto = $producto->getOne()['DATA'][0];
 
 			// Añadir al carrito
-			if(is_object($producto)){
+			if(is_array($producto)){
 				$_SESSION['carrito'][] = array(
-					"id_producto" => $producto->id,
-					"precio" => $producto->precio,
+					"id_producto" => $producto['id'],
+					"precio" => $producto['precio'],
 					"unidades" => 1,
 					"producto" => $producto
 				);

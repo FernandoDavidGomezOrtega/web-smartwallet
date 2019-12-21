@@ -62,7 +62,7 @@ ob_start();
 
 		<?php else : ?>
 			<div class="alert alert-success text-align-center" role="alert">
-				<?= $_SESSION['identity']->nombre ?> <?= $_SESSION['identity']->apellidos ?>
+				<?= $_SESSION['identity']['nombre'] ?> <?= $_SESSION['identity']['apellidos'] ?>
 			</div>
 		<?php endif; ?>
 

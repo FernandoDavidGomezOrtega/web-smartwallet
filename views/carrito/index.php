@@ -1,6 +1,5 @@
 <h1>Carrito de la compra</h1>
 
-
 <?php if (isset($_SESSION['carrito']) && count($_SESSION['carrito']) >= 1) : ?>
   <div class="table-responsive-md">
     <table class="table">
@@ -22,18 +21,18 @@
         <tbody>
           <tr>
             <td class="align-middle">
-              <?php if ($producto->imagen != null) : ?>
-                <img class="img-max-height-90px" src="<?= base_url ?>uploads/images/<?= $producto->imagen ?>" alt="producto wallet">
+              <?php if ($producto['imagen'] != null) : ?>
+                <img class="img-max-height-90px" src="<?= base_url ?>uploads/images/<?= $producto['imagen'] ?>" alt="producto wallet">
               <?php else : ?>
                 <img class="img-max-height-90px" src="<?= base_url ?>assets/img/no-image-available.jpg" alt="producto wallet">
               <?php endif; ?>
             </td>
 
             <td class="align-middle">
-              <a href='<?= base_url ?>producto/ver&id=<?= $producto->id ?>' class=''><?= $producto->nombre ?></a>
+              <a href='<?= base_url ?>producto/ver&id=<?= $producto['id'] ?>' class=''><?= $producto['nombre'] ?></a>
             </td>
             <td class="align-middle">
-              <?= $producto->precio ?>
+              <?= $producto['precio'] ?>
             </td>
             <td class="align-middle">
               <?= $elemento['unidades'] ?>
