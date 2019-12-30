@@ -80,7 +80,7 @@
 
 
 <script type="text/javascript">
-                // función para validar el formato de nombre, password y confirmacion de password
+                // función para validar el formato de email y password 
                   function validarPassword(){
 
                     var userEmail = document.getElementById("email").value;
